@@ -8,6 +8,7 @@ One can also implement the flight control on a differnt embedded hardware (like 
 
 The project is open-sourced and all the source codes are available in this git. 
 
+![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Screenat18_54%20(2).png)
 
 
 
@@ -106,3 +107,6 @@ On successful reception, the state parameters are estimated with a linear quadra
 with acceleration in x, y and z axis and angular velocity about X and Y axis in the body axis frame. 
 
 The controller is implemented as cascaded PID controllers;
+
+Now you are ready to take-off!!!
+![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Sim%20(2).png)
