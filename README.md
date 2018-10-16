@@ -70,4 +70,39 @@ i.e. **BitConverter.ToSingle(xdata, 45)** will give pitch value if data array is
 To implement a basic autonomous flight control system, we need to control - elevators, ailerons, rudder and throttle. 
 In X-Plane control commands for control surfaces are between +1.0 to -1.0 and 0 to 1.0 for throttle. 
 
+## Interfacing
+T-CREST can be configured on Altera DE2-115 FPGA devlopment board. Details about configuring T-CREST can be found at https://github.com/t-crest/patmos.
 
+Connect the USB/TTL serial cable (COM5) to the following pins on GPIO:
+```
+               | * * |  GND
+               | * * |
+               | * * |
+               | * * |
+               | * * |  
+ RX2-- 39/AH23 | * * |  40/AG26 -- TX2
+               +-----+
+                GPIO
+```
+compile and download the flight controller (fcs.c) by typing - 
+(make sure the fcs.c file is present in /home/patmos/t-crest/patmos/c/fcs.c)
+```
+make comp APP=fcs download
+```
+## Understanding the controller
+
+The controller gets sensor data from the simulator via the serial port -
+
+```
+290     unsigned char serial =  read(uart2_ptr);
+```
+The simulator sends a 4 byte header followed by 13 features in 52 byte i.e. 4 bytes per feature. All the parameters are 
+in 32-bit floats. The bytes are concatinated to get the parameter value. While concatination, consider the endian of the operating system you are using.  
+
+On successful reception, the state parameters are estimated with a linear quadratic estimator -  
+```
+333     Estimator( acc_x,  acc_y,  acc_z,  P, Q);
+```
+with acceleration in x, y and z axis and angular velocity about X and Y axis in the body axis frame. 
+
+The controller is implemented as cascaded PID controllers;
