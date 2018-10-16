@@ -1,0 +1,7 @@
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\bin\Release\XPC.exe.config
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\bin\Release\XPC.exe
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\bin\Release\XPC.pdb
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\obj\Release\XPC.csprojAssemblyReference.cache
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\obj\Release\XPC.csproj.CoreCompileInputs.cache
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\obj\Release\XPC.exe
+C:\project_files\PREDICT\XP_Commander\XPC\XPC\obj\Release\XPC.pdb
