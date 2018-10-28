@@ -4,15 +4,25 @@ PREDICT, Time-predictable Flight Control, is a fly-by-wire flight control system
 The system is connected to X-Plane 11, where you can perform experiemnts on differnet aircrafts with the flight control system. 
 The present controller is tuned for Cirrus Vision SF50 aircraft in X-Plane 11. 
 
-One can also implement the flight control on a differnt embedded hardware (like arduino). We also provide an **emulator to use the same flight controller without any external hardware**. See the emulator section for details.
+One can also implement the flight control on a differnt embedded hardware (like arduino).
 
 The project is open-sourced and all the source codes are available in this git. 
 
 ![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Screenat18_54%20(2).png)
 
+Things needed - 
+
+1. X-Plane 11: Flight-Simulator (https://www.x-plane.com/)
+2. X-interface: Interfacing tool (XPC.exe, from the repo) 
+3. DE2-115 dev-board with T-CREST (https://github.com/t-crest/patmos) OR other embedded platform.
+
+The interfacing b/w the embedded flight computer and the simulator via x-interface is explained in the following block diagram-
+
+![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/git_figs.png)
 
 
-## X-Interface 
+
+## Setting up X-Interface 
 
 X-Interface is a tool written in C# to interface between X-Plane and embedded flight control computer i.e. T-CREST in this case. However, this can be used to communicate with any embedded hardware (like Arduino) with serial interface. 
 
