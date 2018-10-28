@@ -100,6 +100,14 @@ compile and download the flight controller (fcs.c) by typing -
 ```
 make comp APP=fcs download
 ```
+## Starting the system
+1. Install X-plane 11
+2. Copy the files from the repo to a directory, say, xdirectory.
+3. Set-up T-crest and connect with the host system running the simulator. 
+4. Run X-plane, select Cirrus Vision SF50 aircraft and start the simulation.
+5. Run X-interface from -> xdirectory-> XPC.exe.
+6. Compile and download controller in T-CREST. 
+
 ## Understanding the controller
 
 The controller gets sensor data from the simulator via the serial port -
