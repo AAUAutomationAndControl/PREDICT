@@ -145,7 +145,8 @@ Measurement prediction: z_hat(k+1|1) = C(k) x_hat(k+1|k)
 State estimation update: x_hat(k+1|k+1) = x_hat(k+1|k) + W(k+1){z(k+1) - z_hat(k+1|k)}
 ```
 where, W(k+1) is Kalman gain. Read more at https://en.wikipedia.org/wiki/Kalman_filter
-with acceleration in x, y and z axis and angular velocity about X and Y axis in the body axis frame. 
+
+ 
 
 The controller is implemented as cascaded PID controllers;
 
