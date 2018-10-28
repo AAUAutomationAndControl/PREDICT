@@ -122,6 +122,29 @@ On successful reception, the state parameters are estimated with a linear quadra
 ```
 333     Estimator( acc_x,  acc_y,  acc_z,  P, Q);
 ```
+### The Estimator 
+The Kalman filter maintains the estimates of the state
+```
+x_hat(k|k)- estimate of x(k) given measurements z(k), z(k-1), ...
+x_hat(k+1|k)- estimate of x(k+1) given measurements z(k), z(k-1), ...
+```
+and the error covariance matrix of the state estimate
+
+```
+P(k|k)- covariance of x(k) given z(k), z(k-1), ...
+P(k+1|k)- covariance of x(k+1) given z(k), z(k-1), ...
+```
+State Estimation - 
+when, 
+
+x_hat(k|k), u(k) and P(k|k) and measurement z(k+1),
+```
+State prediction: x_hat(k+1|k) = A(k) x_hat(k|k) + B(k) u(k)
+Measurement prediction: z_hat(k+1|1) = C(k) x_hat(k+1|k)
+
+State estimation update: x_hat(k+1|k+1) = x_hat(k+1|k) + W(k+1){z(k+1) - z_hat(k+1|k)}
+```
+where, W(k+1) is Kalman gain. Read more at https://en.wikipedia.org/wiki/Kalman_filter
 with acceleration in x, y and z axis and angular velocity about X and Y axis in the body axis frame. 
 
 The controller is implemented as cascaded PID controllers;
