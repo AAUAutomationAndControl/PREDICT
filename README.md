@@ -6,7 +6,7 @@ The present controller is tuned for Cirrus Vision SF50 aircraft in X-Plane 11.
 
 One can also implement the flight control on a differnt embedded hardware (like arduino).
 
-The project is open-sourced and all the source codes are available in this git. 
+The project is open-sourced and all the source codes can be download from this git (except the flight simulator)
 
 ![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Screenat18_54%20(2).png)
 
