@@ -10,7 +10,7 @@ The project is open-sourced and all the source codes can be download from this g
 
 ![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Screenat18_54%20(2).png)
 
-Things needed - 
+Requirements - 
 
 1. X-Plane 11: Flight-Simulator (https://www.x-plane.com/)
 2. X-interface: Interfacing tool (XPC.exe, from the repo) 
