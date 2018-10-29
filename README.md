@@ -70,7 +70,7 @@ for e.g. the next four elements (106,34,84,67) represents Indicated air speed in
 
 The next 24 elements (,89,12,84,67,67,149,107,67,131,120,106,67,0,192,121,196,181,30,116,67,85,141,135,67,85,141,135,67,) belongs to Vtrue,Vtrue, blank,Vind,Vtru,Vtrue as shown in the cockpit data out. 
 
-The next element is 17 i.e. the index for Pitch,roll, heading followed by 3 zeros. (60,118,187,64,28,193,81,61,1,248,165,66,184,152,135,66,0,192,121,196,0,192,121,196,0,192,121,196,0,192,121,196,) represents pitch, roll, true heading and magnetic heading followed by 4 blank spaces (0,192,121,196 is one blank space).
+The next element is 17 i.e. the index for Pitch,roll, heading followed by 3 zeros. (60,118,187,64,28,193,81,61,1,248,165,66,184,152,135,66,0,192,121,196,0,192,121,196,0,192,121,196,0,192,121,196,) represents pitch, roll, true heading and magnetic heading followed by 4 blank spaces (0,192,121,196 is one blank space). For runnin the sim, we need data from index - 3, 17, 20, 26.
 
 ***BitConverter.ToSingle*** (or Int/Int16/Double) can be used in C# to get numeric data from the 4 bytes; 
 i.e. **BitConverter.ToSingle(xdata, 45)** will give pitch value if data array is stored as **xdata**
@@ -101,12 +101,11 @@ compile and download the flight controller (fcs.c) by typing -
 make comp APP=fcs download
 ```
 ## Starting the system
-1. Install X-plane 11
-2. Copy the files from the repo to a directory, say, xdirectory.
-3. Set-up T-crest and connect with the host system running the simulator. 
-4. Run X-plane, select Cirrus Vision SF50 aircraft and start the simulation.
-5. Run X-interface from -> xdirectory-> XPC.exe.
-6. Compile and download controller in T-CREST. 
+
+1. Set-up T-crest and connect with the host system running the simulator. 
+2. Run X-plane, select Cirrus Vision SF50 aircraft and start the simulation.
+3. Run X-interface from -> xdirectory-> XPC.exe.
+4. Compile and download controller in T-CREST. 
 
 ## Understanding the controller
 
@@ -146,9 +145,12 @@ State estimation update: x_hat(k+1|k+1) = x_hat(k+1|k) + W(k+1){z(k+1) - z_hat(k
 ```
 where, W(k+1) is Kalman gain. Read more at https://en.wikipedia.org/wiki/Kalman_filter
 
- 
-
+### The Controller
 The controller is implemented as cascaded PID controllers;
+
+Low-level longitudina and lateral controllers are closed loop controllers with reference signals from High-level controller and feeback signals from the state estimator. 
+Low-level controller directly controls the control surfaces to attain reference attitude as commanded by high-lelvel controller. 
+High-level controllers are generally open-loop or closed-loop controller that sends command to simulate pilot-inputs or implement predefined flight-modes. 
 
 Now you are ready to take-off!!!
 ![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Sim%20(2).png)
