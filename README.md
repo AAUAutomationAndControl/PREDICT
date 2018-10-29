@@ -152,5 +152,14 @@ Low-level longitudina and lateral controllers are closed loop controllers with r
 Low-level controller directly controls the control surfaces to attain reference attitude as commanded by high-lelvel controller. 
 High-level controllers are generally open-loop or closed-loop controller that sends command to simulate pilot-inputs or implement predefined flight-modes. 
 
+The structure of the controller can be better understood from the block-diagram of a quadrotor rotor platform below. 
+
+![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/quad_sim.PNG)
+
+The plant is the dynamics of the aircraft, in this case, the simulator. The noise model is implemented in X-Interface with two noise models for accelerometer and gyroscope. The attitude-controller is the low-level controller that gets the noisy attitude values as feed-back and reference position values as command signals from the Position-controller. The position-controlloer is the high-level controller (Auto-Pilot) where reference postion (desired altitude, heading) can be set. The Position-controller computes command-signals for the low-level controller based on the user inputs. 
+
+The High-level controller or Auto-pilot does not fly the aircraft autonomously; rather, it maintains the aircraft state to a reference state inserted by the pilot (Altitude hold, auto-throttle, maintain heading etc.). Additional application can be used like FMS to mimic the pilot inputs and fly without pilot input. 
+ 
+
 Now you are ready to take-off!!!
 ![alt text](https://github.com/AAUAutomationAndControl/PREDICT/blob/master/Sim%20(2).png)
