@@ -104,7 +104,7 @@ make comp APP=fcs download
 
 1. Set-up T-crest and connect with the host system running the simulator. 
 2. Run X-plane, select Cirrus Vision SF50 aircraft and start the simulation.
-3. Run X-interface from -> xdirectory-> XPC.exe.
+3. Run X-interface from -> xdirectory-> XPC.exe, and press any key. 
 4. Compile and download controller in T-CREST. 
 
 ## Understanding the controller
